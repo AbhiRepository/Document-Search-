@@ -1,0 +1,26 @@
+<center>
+	<div style="margin: 0 auto;">
+		<form action="search" method="POST">
+			<input type="text" name="query">
+			<button type="submit">Search</button>
+		</form>
+	</div>
+</center>
+
+
+<div style="margin: 0 auto;">
+	<% if(allRecords.length == 0){ %>
+		<div> 
+			<center><h3>Sorry No result found</h3></center>
+		</div>
+	<% } else { %>
+
+	<% allRecords.forEach(function(record){ %>
+		<div> 
+			<h3><%= record['_source']['documentheading'] %></h3>
+			<p><%= record['_source']['documentcontent'] %></p>
+		</div>
+	<% }) %>
+
+	<% } %>
+</div>
